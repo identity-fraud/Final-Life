@@ -18,12 +18,15 @@ res://
 		└── player_sprite.png (Asset)
 ```
 <!--VSCode errors this (└──) to warn copy pasting lookalike characters (ignore)-->
-* Scenes/levels (.tscn) (create levels/ folder)
+* ~~Scenes/levels (.tscn) (create levels/ folder)~~
 * Add background tiles using TileMapLayer (named Background in level_1 scene) without stacking tiles
 * add camera follow player (camera dampening)
 * adding main menu buttons texture
 * pause menu (to exit)
 * change movement to add priority to sideway looking sprite instead of using front/back sprite when moving diagonal
+* make menu buttons higher visible text
+* add unused credits button
+* responsive buttons (enlargen on hover)
 
 -- insert trailer/video of game --
 
