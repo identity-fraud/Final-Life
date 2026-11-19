@@ -1,5 +1,5 @@
 <div align="center"> <!--deprecated but is the only way to center on Github markdown-->
-	<img alt="Final Life game logo" src="assets/TitleCard.png" width="300"> 
+	<img alt="Final Life game logo" src="levels/level_0/TitleCard.png" width="300"> 
 </div>
 <hr>
 
