@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://i3o457pk3rwp"]
 
+[ext_resource type="Script" uid="uid://bhg1w5iq601kl" path="res://levels/level_1/camera_2d.gd" id="1_5b03i"]
 [ext_resource type="PackedScene" uid="uid://bqqbvpwv6fkrt" path="res://player/player.tscn" id="1_vfa6b"]
 [ext_resource type="Texture2D" uid="uid://b6erf5vrrnyfu" path="res://levels/level_1/Groundtilemap.png" id="2_45440"]
+[ext_resource type="Texture2D" uid="uid://dphbhpbrsegiv" path="res://assets/InventorySprites.png" id="2_epb64"]
+[ext_resource type="Script" uid="uid://dw40klsaibyy6" path="res://levels/level_1/control.gd" id="2_mxc8w"]
+[ext_resource type="Texture2D" uid="uid://683a4jnoa51u" path="res://assets/HealthbarSprites.png" id="4_iey7c"]
+[ext_resource type="Texture2D" uid="uid://bhake7bun6303" path="res://assets/EmptyMoveSlotTemp.png" id="4_j48du"]
+[ext_resource type="Script" uid="uid://bvncbmc0vksl2" path="res://levels/level_1/ability_manager.gd" id="7_j48du"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epb64"]
 texture = ExtResource("2_45440")
@@ -19,8 +25,71 @@ sources/2 = SubResource("TileSetAtlasSource_epb64")
 
 [node name="level_1" type="Node2D" unique_id=1610643571]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=44046161 node_paths=PackedStringArray("target")]
+script = ExtResource("1_5b03i")
+target = NodePath("../Player")
+
+[node name="AbilitySlots" type="Control" parent="Camera2D" unique_id=1093749494 node_paths=PackedStringArray("slot1", "slot2", "slot3")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_mxc8w")
+slot1 = NodePath("InventorySprites1/EmptyMoveSlotTemp")
+slot2 = NodePath("InventorySprites2/EmptyMoveSlotTemp2")
+slot3 = NodePath("InventorySprites3/EmptyMoveSlotTemp3")
+
+[node name="InventorySprites1" type="Sprite2D" parent="Camera2D/AbilitySlots" unique_id=902852195]
+position = Vector2(-72.99998, 260.00003)
+scale = Vector2(0.042968757, 0.042968757)
+texture = ExtResource("2_epb64")
+hframes = 3
+
+[node name="EmptyMoveSlotTemp" type="Sprite2D" parent="Camera2D/AbilitySlots/InventorySprites1" unique_id=101662034]
+z_index = -1
+position = Vector2(-0.00048828125, -744.728)
+scale = Vector2(23.272722, 23.272722)
+texture = ExtResource("4_j48du")
+
+[node name="InventorySprites2" type="Sprite2D" parent="Camera2D/AbilitySlots" unique_id=810437371]
+position = Vector2(1.5258789e-05, 256)
+scale = Vector2(0.042968757, 0.042968757)
+texture = ExtResource("2_epb64")
+hframes = 3
+frame = 1
+
+[node name="EmptyMoveSlotTemp2" type="Sprite2D" parent="Camera2D/AbilitySlots/InventorySprites2" unique_id=1520216627]
+z_index = -1
+position = Vector2(0.00038528442, -651.6362)
+scale = Vector2(23.27272, 23.27272)
+texture = ExtResource("4_j48du")
+
+[node name="InventorySprites3" type="Sprite2D" parent="Camera2D/AbilitySlots" unique_id=1461683711]
+position = Vector2(73.00004, 256)
+scale = Vector2(0.042968757, 0.042968757)
+texture = ExtResource("2_epb64")
+hframes = 3
+frame = 2
+
+[node name="EmptyMoveSlotTemp3" type="Sprite2D" parent="Camera2D/AbilitySlots/InventorySprites3" unique_id=1656977234]
+z_index = -1
+position = Vector2(0, -651.6367)
+scale = Vector2(23.27272, 23.27272)
+texture = ExtResource("4_j48du")
+
+[node name="HealthbarSprites" type="Sprite2D" parent="Camera2D/AbilitySlots" unique_id=553615379]
+position = Vector2(-436.00003, 184)
+scale = Vector2(0.21191403, 0.21191403)
+texture = ExtResource("4_iey7c")
+hframes = 10
+
 [node name="Player" parent="." unique_id=1279126052 instance=ExtResource("1_vfa6b")]
+
+[node name="AbilityManager" type="Node2D" parent="Player" unique_id=134791758]
+script = ExtResource("7_j48du")
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=882326163]
 scale = Vector2(0.2, 0.2)
 tile_set = SubResource("TileSet_mcdv1")
+
+[connection signal="changed_slot" from="Player/AbilityManager" to="Camera2D/AbilitySlots" method="_on_ability_manager_changed_slot"]
