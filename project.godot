@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Final Life"
-run/main_scene="uid://diuo1hnxdl5l3"
+run/main_scene="uid://bihn03fn3sbdw"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://assets/TitleCard.png"
+config/icon="res://levels/level_0/TitleCard.png"
 
 [display]
 

@@ -1,7 +1,73 @@
-[gd_scene format=3 uid="uid://d0c41en2u6lkw"]
+[gd_scene format=3 uid="uid://bihn03fn3sbdw"]
 
-[ext_resource type="PackedScene" uid="uid://bqqbvpwv6fkrt" path="res://player/player.tscn" id="1_vfa6b"]
+[ext_resource type="Script" uid="uid://cuujyd82mf3fa" path="res://levels/level_0/startquit.gd" id="1_lm2rq"]
+[ext_resource type="Texture2D" uid="uid://b6ncla23exssu" path="res://levels/level_0/TitleCard.png" id="2_qq2ud"]
+[ext_resource type="Texture2D" uid="uid://uirndb037kl0" path="res://levels/level_0/MenuButtonSprites.png" id="3_wcjp7"]
 
-[node name="level_0" type="Node2D" unique_id=1610643571]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2yf2"]
+texture = ExtResource("3_wcjp7")
+region_rect = Rect2(0, 0, 1024, 1024)
 
-[node name="Player" parent="." unique_id=1279126052 instance=ExtResource("1_vfa6b")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03pl2"]
+texture = ExtResource("3_wcjp7")
+region_rect = Rect2(0, 1024, 1024, 1024)
+
+[node name="TitleScreen" type="Control" unique_id=1453424557]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lm2rq")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1202274245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -250.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=1114319706]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_qq2ud")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=710387256]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 441.0
+offset_right = 831.0
+offset_bottom = 586.0
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="start" type="Button" parent="HBoxContainer" unique_id=461162033]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_w2yf2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w2yf2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w2yf2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_w2yf2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w2yf2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_w2yf2")
+
+[node name="quit" type="Button" parent="HBoxContainer" unique_id=1365590046]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_03pl2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_03pl2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_03pl2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_03pl2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_03pl2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_03pl2")
+
+[connection signal="pressed" from="HBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/quit" to="." method="_on_quit_pressed"]

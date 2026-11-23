@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uirndb037kl0"
-path="res://.godot/imported/MenuButtonSprites.png-c3e22f5ec498c37bc0da8e5a19ccc33c.ctex"
+uid="uid://cyh00nyjng1sr"
+path="res://.godot/imported/TingSpriteSheet.png-62d922161d7b55b08b76412f851bab6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MenuButtonSprites.png"
-dest_files=["res://.godot/imported/MenuButtonSprites.png-c3e22f5ec498c37bc0da8e5a19ccc33c.ctex"]
+source_file="res://player/TingSpriteSheet.png"
+dest_files=["res://.godot/imported/TingSpriteSheet.png-62d922161d7b55b08b76412f851bab6b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5whf8syvgpxb"
-path="res://.godot/imported/CreditsButton.png-842a20474d7b62fbff585a9df073b719.ctex"
+uid="uid://uirndb037kl0"
+path="res://.godot/imported/MenuButtonSprites.png-f2f0556d569e2db120815176979e6e0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CreditsButton.png"
-dest_files=["res://.godot/imported/CreditsButton.png-842a20474d7b62fbff585a9df073b719.ctex"]
+source_file="res://levels/level_0/MenuButtonSprites.png"
+dest_files=["res://.godot/imported/MenuButtonSprites.png-f2f0556d569e2db120815176979e6e0d.ctex"]
 
 [params]
 
